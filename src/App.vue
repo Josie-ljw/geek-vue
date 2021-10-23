@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app',
+    mounted () {
+      this.$store.dispatch('getCartCommodity')
+    }
   }
-}
+
+  // 设置html的font-size
+  document.addEventListener('DOMContentLoaded', function () {
+    const ratio = 375 / 10
+    const rem = window.innerWidth / ratio
+    const dpr = window.devicePixelRatio
+    const html = document.querySelector('html')
+    html.classList.add(`env__dpr-${dpr}`)
+    html.style.fontSize = window.innerWidth / 10 + 'px'
+  })
+
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  /* 全局css */
+  @import './styles/global.scss';
 </style>
