@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="video-wrapper">
     <div class="video-container" ref="videoContainer"></div>
     <div class="footer">
       <span class="hangup-button" @click="hangup">挂断</span>
@@ -47,7 +47,7 @@
       inRoomService.on('onRoomUserStreamSubscribed', (event) => {
         const avRoomUid = event.stream.getId()
         // 获取远端视频渲染的dom节点
-        const remoteView = this.$ref.videoContainer
+        const remoteView = this.$refs.videoContainer
         // 播放远端音视频
         inRoomService
           .getInRoomVideoController()
@@ -67,7 +67,7 @@
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.video-wrapper {
   width: 100vw;
   height: 100vh;
 

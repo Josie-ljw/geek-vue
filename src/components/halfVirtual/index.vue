@@ -31,12 +31,12 @@ import inCall from './inCall.vue';
 
       try {
         await this.guest.login({
-          account: 'anonymous_account_145219534217814016_2_99',
-          token: 'anonymous_account_145219534217814016_2_99',
+          account: 'anonymous_account_145219534217814016_2_989',
+          token: 'anonymous_account_145219534217814016_2_989',
         })
         const groups = await this.guest.queryGroupList()
         if (groups.categoryList.length) {
-          await this.guest.call(groups.categoryList[0])
+          await this.guest.call(groups.categoryList[0].code)
         }
       } catch (error) {
         throw error
