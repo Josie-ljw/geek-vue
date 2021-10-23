@@ -79,6 +79,10 @@ export default new Router({
           component: resolve => require(['@/containers/productDetail/index'], resolve)
         },
         {
+          path: '/customerDetail/:id',
+          component: resolve => require(['@/containers/customerDetail/index'], resolve)
+        },
+        {
           path: '/comment',
           component: resolve => require(['@/containers/comment/index'], resolve)
         },
@@ -89,10 +93,6 @@ export default new Router({
         {
           path: '/topicDetail',
           component: resolve => require(['@/containers/topic/topicDetail'], resolve)
-        },
-        {
-          path: '/halfVirtual',
-          component: resolve => require(['@/containers/halfVirtualPage'], resolve)
         },
         {
           path: '/myOrder',

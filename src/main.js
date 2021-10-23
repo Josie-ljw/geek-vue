@@ -4,7 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import {post, get} from './utils/http'
 
+//定义全局变量
+Vue.prototype.$post=post;
+Vue.prototype.$get=get;
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

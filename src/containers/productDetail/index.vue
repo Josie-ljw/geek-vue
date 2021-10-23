@@ -47,7 +47,7 @@
             <span>服务:</span>            
           </div>
           <div class="service-content">
-            <span class="service-item" v-for="service in productDetail.services">
+            <span class="service-item" v-for="(service, index) in productDetail.services" :key="index">
               {{ service }}
             </span>
           </div>
@@ -63,14 +63,14 @@
       </div>
       <attribute-container />
       <div class="product-detail">
-        <p v-for="detailPic in productDetail.detailPics">
+        <p v-for="(detailPic,index) in productDetail.detailPics" :key="index">
           <img v-bind:src="detailPic" />
         </p>
       </div>
       <common-issue />
     </div>
     <div class="pd-bottom">
-      <button class="kefu"><i /></button>
+      <button class="kefu" @click="openCustomerService"><i /></button>
       <button v-on:click="handleBuyNow" class="buy">立即购买</button>
       <button v-on:click="handleAddCart" class="cart">加入购物车</button>
     </div>
@@ -98,6 +98,9 @@
       commentCountString () {
         const count = this.productDetail.commentCount
         return count > 999 ? '999+' : count
+      },
+      productId () {
+        return this.productDetail.pId
       }
     },
     components: {
@@ -154,6 +157,14 @@
         } else {
           this.handlePickFormat()
         }
+      },
+      openCustomerService () {
+        this.$router.push({
+          path: `/customerDetail/${this.productId}`,
+          query: {
+            id: this.productId
+          }
+        })
       }
     },
     mounted () {

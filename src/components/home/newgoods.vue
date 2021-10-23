@@ -3,7 +3,7 @@
     <div class="ng-item-specification" v-if="good.specification">{{ good.specification }}</div>
     <img class="ng-item-pic" v-bind:src="good.pic" />
     <div class="ng-item-tag" v-if="good.activity">
-      <p v-for="ac in good.activity" v-bind:class="ac.type ? 'hot' : 'forsale' ">{{ ac.tag }}</p>
+      <p v-for="ac in good.activity" v-bind:class="ac.type ? 'hot' : 'forsale' " :key="ac.id">{{ ac.tag }}</p>
     </div>
     <h6 class="ng-item-name">{{ good.title }}</h6>
     <p class="ng-item-description">{{ good.description }}</p>
