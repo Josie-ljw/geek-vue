@@ -5,10 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "server": "npx json-server --watch data.json --port 3300"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "js-audio-recorder": "^1.0.7",
+    "js-md5": "^0.7.3",
     "vce-sdk-web": "0.0.9",
     "vue": "^2.6.10",
     "vue-router": "^3.5.2",

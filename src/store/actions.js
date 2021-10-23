@@ -3,7 +3,6 @@ import { getCartCommodityFromLocalStorage } from '@/utils/storage'
 
 export default {
   getCartCommodity ({ commit }) {
-    // TODO: 判断是否登录，登录的从服务器获取数据，否则直接从本地获取
     commit(TYPES.SETCARTCOMMODITY, getCartCommodityFromLocalStorage())
   },
   addToCart ({ commit }, commodity) {
@@ -16,7 +15,6 @@ export default {
     commit(TYPES.CHANGESELECTFORMAT, data)
   },
   selectCartCommodity ({ commit }, commodity) {
-    // TODO: 判断是否登录，登录的发送请求
     commit(TYPES.SELECTCARTCOMMODITY, commodity)
   },
   selectAllCartCommodity ({ commit }) {

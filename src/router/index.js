@@ -95,6 +95,14 @@ export default new Router({
           component: resolve => require(['@/containers/topic/topicDetail'], resolve)
         },
         {
+          path: '/halfVirtual',
+          component: resolve => require(['@/containers/halfVirtualPage'], resolve)
+        },
+        {
+          path: '/testRecorder',
+          component: resolve => require(['@/containers/testRecorder'], resolve)
+        },
+        {
           path: '/myOrder',
           component: resolve => require(['@/containers/myOrder/index'], resolve)
         },
