@@ -1,17 +1,16 @@
 import axios from 'axios';
 
-
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = '';
-
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 //http request 拦截器
 axios.interceptors.request.use(
 	config => {
 		// const token = getCookie('名称');
-		config.data = JSON.stringify(config.data);
+		config.data = config.data;
 		config.headers = {
-			'Content-Type': 'application/x-www-form-urlencoded'
+			'Content-Type': 'text/plain'
 		}
 		// if(token){
 		//   config.params = {'token':token}
@@ -22,7 +21,6 @@ axios.interceptors.request.use(
 		return Promise.reject(err);
 	}
 );
-
 
 //http response 拦截器
 axios.interceptors.response.use(
@@ -35,6 +33,8 @@ axios.interceptors.response.use(
 				} //从哪个页面跳转
 			})
 		}
+    console.log(config.data, 'config.data')
+    config.data=this.$qs.stringify(config.data)
 		return response;
 	},
 	error => {

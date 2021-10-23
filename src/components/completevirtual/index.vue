@@ -4,10 +4,6 @@
     <!-- <div class="button-wrap">
       <img class="button-image" src="../../assets/images/record.png" alt="">
     </div> -->
-    <!-- <div class="textarea">
-      <label for="chat"></label>
-      <textarea id="chat" name="story" rows="5" cols="33" v-model="chatDetail"></textarea>
-    </div> -->
     <div class="chat-content-box" id="chatContentBox">
       <div v-for="(it, index) in chatList" :key="index">
         <div v-if="it.senderId != chatUserId">
@@ -93,19 +89,17 @@ export default {
     },
     sendMsg () {
       const data = {
-        "game_id": "GA-900432536377765888",
-        "agent_id": "AG-900432830293606400",
-        "robot_id": "RT-900432830398464000",
-        "user_id": "uesr_1",
-        "uuid": "user_1-RT-1-1558682253263",
-        "dialogue_type": 1,
-        "utterance": "你好你好你好444",
-        "timestamp": 1558682253263,
-        "command": {},
-        "utterance_type": 0,
-        "response_type": 0
+        game_id: "GA-900432536377765888",
+        agent_id: "AG-900432830293606400",
+        robot_id: "RT-900432830398464000",
+        user_id: "uesr_1",
+        dialogue_type: 1,
+        utterance: "你好你好你好444",
+        timestamp: 1558682253263,
+        utterance_type: 0,
+        response_type: 0
       }
-      const url = 'https://agent-proxy-7462-80.apps-hp.danlu.netease.com:80/api/v1/dialogue'
+      const url = 'http://agent-proxy-7462-80.apps-hp.danlu.netease.com:80/api/v1/dialogue'
 
       this.$post(url, data)
       .then((response) => {
